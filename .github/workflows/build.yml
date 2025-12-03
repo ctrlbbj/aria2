@@ -4,6 +4,8 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
+    with:
+      upload-artifact: true
     strategy:
       matrix:
         os: [ubuntu-22.04, macos-14]
@@ -100,3 +102,8 @@ jobs:
     - name: Build aria2
       run: |
         make -j"$(nproc 2> /dev/null || sysctl -n hw.ncpu)" check
+    - name: Upload 
+        uses: actions/upload-artifact@master
+        with:
+          name: aria2-${{ matrix.os }}
+          path: "./"
