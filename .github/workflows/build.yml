@@ -74,5 +74,5 @@ jobs:
     - name: Upload 
       uses: actions/upload-artifact@master
       with:
-        name: aria2-${{ runner.os }}-${{ matrix.crypto }}
+        name: aria2-${{ runner.os }}-${{ matrix.crypto }}-${{ matrix.compiler }}
         path: "./"
