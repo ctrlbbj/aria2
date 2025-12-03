@@ -103,7 +103,7 @@ jobs:
       run: |
         make -j"$(nproc 2> /dev/null || sysctl -n hw.ncpu)" check
     - name: Upload 
-        uses: actions/upload-artifact@master
-        with:
-          name: aria2-${{ matrix.os }}
-          path: "./"
+      uses: actions/upload-artifact@master
+      with:
+        name: aria2-${{ matrix.os }}
+        path: "./"
